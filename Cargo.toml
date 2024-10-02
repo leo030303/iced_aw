@@ -69,9 +69,7 @@ time = { version = "0.3.36", features = ["local-offset"], optional = true }
 iced_fonts = "0.1.1"
 
 [dependencies.iced]
-#git = "https://github.com/iced-rs/iced.git"
-#rev = "b474a2b7a763dcde6a377cb409001a7b5285ee8d"
-version = "0.13.1"
+git = "https://github.com/leo030303/iced.git"
 default-features = false
 features = ["advanced"]
 
