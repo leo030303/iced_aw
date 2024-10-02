@@ -81,9 +81,7 @@ num-traits = "0.2.19"   # For widget_id_return example
 rand = "0.8.5"            # For wrap example
 
 [dev-dependencies.iced]
-#git = "https://github.com/iced-rs/iced.git"
-#rev = "b474a2b7a763dcde6a377cb409001a7b5285ee8d"
-version = "0.13.0"
+git = "https://github.com/leo030303/iced.git"
 #default-features = false
 features = ["advanced", "wgpu"]
 
