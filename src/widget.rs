@@ -30,6 +30,11 @@ pub mod card;
 #[cfg(feature = "card")]
 pub use card::Card;
 
+#[cfg(feature = "drag_and_drop")]
+pub mod drag_and_drop;
+#[cfg(feature = "drag_and_drop")]
+pub use drag_and_drop::*;
+
 #[cfg(feature = "color_picker")]
 pub mod color_picker;
 #[cfg(feature = "color_picker")]

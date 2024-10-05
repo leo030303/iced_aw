@@ -170,6 +170,10 @@ mod platform {
     #[doc(no_inline)]
     #[cfg(feature = "sidebar")]
     pub use crate::widget::sidebar;
+
+    #[doc(no_inline)]
+    #[cfg(feature = "drag_and_drop")]
+    pub use crate::widget::drag_and_drop;
 }
 
 #[doc(no_inline)]

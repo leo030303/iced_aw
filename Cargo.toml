@@ -37,6 +37,7 @@ context_menu = []
 slide_bar = []
 drop_down = []
 sidebar = []
+drag_and_drop = []
 
 default = [
     "badge",
@@ -57,6 +58,7 @@ default = [
     "drop_down",
     "menu",
     "sidebar",
+    "drag_and_drop"
 ]
 
 [dependencies]
