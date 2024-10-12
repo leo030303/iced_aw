@@ -90,6 +90,8 @@ where
         state: &'a mut color_picker::State,
         on_cancel: Message,
         on_submit: &'a dyn Fn(Color) -> Message,
+        cancel_button_text: String,
+        submit_button_text: String,
         position: Point,
         class: &'a <Theme as style::color_picker::Catalog>::Class<'b>,
         tree: &'a mut Tree,
@@ -100,18 +102,16 @@ where
         ColorPickerOverlay {
             state: overlay_state,
             cancel_button: Button::new(
-                iced::widget::Text::new(icon_to_string(RequiredIcons::X))
+                iced::widget::Text::new(cancel_button_text)
                     .align_x(Horizontal::Center)
-                    .width(Length::Fill)
-                    .font(REQUIRED_FONT),
+                    .width(Length::Fill),
             )
             .width(Length::Fill)
             .on_press(on_cancel.clone()),
             submit_button: Button::new(
-                iced::widget::Text::new(icon_to_string(RequiredIcons::Check))
+                iced::widget::Text::new(submit_button_text)
                     .align_x(Horizontal::Center)
-                    .width(Length::Fill)
-                    .font(REQUIRED_FONT),
+                    .width(Length::Fill),
             )
             .width(Length::Fill)
             .on_press(on_cancel), // Sending a fake message
