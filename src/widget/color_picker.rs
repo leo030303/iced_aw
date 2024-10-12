@@ -73,6 +73,8 @@ where
     class: <Theme as style::color_picker::Catalog>::Class<'a>,
     /// The buttons of the overlay.
     overlay_state: Element<'a, Message, Theme, Renderer>,
+    cancel_button_text: String,
+    submit_button_text: String,
 }
 
 impl<'a, Message, Theme> ColorPicker<'a, Message, Theme>
@@ -100,6 +102,8 @@ where
         underlay: U,
         on_cancel: Message,
         on_submit: F,
+        cancel_button_text: String,
+        submit_button_text: String,
     ) -> Self
     where
         U: Into<Element<'a, Message, Theme, Renderer>>,
@@ -113,6 +117,8 @@ where
             on_submit: Box::new(on_submit),
             class: <Theme as style::color_picker::Catalog>::default(),
             overlay_state: ColorPickerOverlayButtons::default().into(),
+            cancel_button_text,
+            submit_button_text,
         }
     }
 
@@ -287,6 +293,8 @@ where
                 picker_state,
                 self.on_cancel.clone(),
                 &self.on_submit,
+                self.cancel_button_text.clone(),
+                self.submit_button_text.clone(),
                 position,
                 &self.class,
                 &mut state.children[1],

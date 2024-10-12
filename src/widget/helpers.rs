@@ -187,6 +187,8 @@ pub fn color_picker<'a, Message, Theme, F>(
     underlay: impl Into<Element<'a, Message, Theme, iced::Renderer>>,
     on_cancel: Message,
     on_submit: F,
+    cancel_button_text: String,
+    submit_button_text: String,
 ) -> crate::ColorPicker<'a, Message, Theme>
 where
     Message: 'a + Clone,
@@ -196,7 +198,15 @@ where
         + iced::widget::text::Catalog,
     F: 'static + Fn(Color) -> Message,
 {
-    crate::ColorPicker::new(show_picker, color, underlay, on_cancel, on_submit)
+    crate::ColorPicker::new(
+        show_picker,
+        color,
+        underlay,
+        on_cancel,
+        on_submit,
+        cancel_button_text,
+        submit_button_text,
+    )
 }
 
 #[cfg(feature = "date_picker")]
