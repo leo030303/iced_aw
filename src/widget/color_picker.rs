@@ -73,7 +73,9 @@ where
     class: <Theme as style::color_picker::Catalog>::Class<'a>,
     /// The buttons of the overlay.
     overlay_state: Element<'a, Message, Theme, Renderer>,
+    /// The text for the cancel button on the overlay.
     cancel_button_text: String,
+    /// The text for the submit button on the overlay.
     submit_button_text: String,
 }
 
