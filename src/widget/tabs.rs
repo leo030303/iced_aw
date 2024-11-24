@@ -395,7 +395,7 @@ where
         )
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         state: &mut Tree,
         event: Event,
@@ -428,7 +428,7 @@ where
             }
         };
 
-        let status_tab_bar = self.tab_bar.on_event(
+        let status_tab_bar = self.tab_bar.update(
             &mut Tree::empty(),
             event.clone(),
             tab_bar_layout,
@@ -443,7 +443,7 @@ where
             .tabs
             .get_mut(idx)
             .map_or(event::Status::Ignored, |element| {
-                element.as_widget_mut().on_event(
+                element.as_widget_mut().update(
                     &mut state.children[1].children[idx],
                     event,
                     tab_content_layout,

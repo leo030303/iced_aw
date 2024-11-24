@@ -428,7 +428,7 @@ where
     }
 
     #[allow(clippy::too_many_lines, clippy::cognitive_complexity)]
-    fn on_event(
+    fn update(
         &mut self,
         state: &mut Tree,
         event: Event,
@@ -473,7 +473,7 @@ where
         let current_text = self.content.text().to_owned();
 
         let mut forward_to_text = |event, shell, child, clipboard| {
-            self.content.on_event(
+            self.content.update(
                 child, event, content, cursor, renderer, clipboard, shell, viewport,
             )
         };

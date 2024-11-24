@@ -151,7 +151,7 @@ where
         );
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         event: Event,
         layout: Layout<'_>,
@@ -205,7 +205,7 @@ where
         };
 
         let child_status = if forward_event_to_children {
-            self.content.as_widget_mut().on_event(
+            self.content.as_widget_mut().update(
                 self.tree,
                 event,
                 layout_children,

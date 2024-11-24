@@ -177,7 +177,7 @@ where
         )
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         tree: &mut Tree,
         event: event::Event,
@@ -196,7 +196,7 @@ where
             .zip(tree.children.iter_mut()) // [item_tree...]
             .zip(layout.children()) // [widget_node...]
             .map(|((item, tree), layout)| {
-                item.on_event(
+                item.update(
                     tree,
                     event.clone(),
                     layout,

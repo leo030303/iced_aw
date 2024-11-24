@@ -159,7 +159,7 @@ where
         self.content.as_widget().size()
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         tree: &mut iced::advanced::widget::Tree,
         event: iced::Event,
@@ -171,7 +171,7 @@ where
         _viewport: &iced::Rectangle,
     ) -> iced::advanced::graphics::core::event::Status {
         // handle the on event of the content first, in case that the droppable is nested
-        let status = self.content.as_widget_mut().on_event(
+        let status = self.content.as_widget_mut().update(
             &mut tree.children[0],
             event.clone(),
             layout,

@@ -174,7 +174,7 @@ where
         }
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         state: &mut Tree,
         event: Event,
@@ -196,7 +196,7 @@ where
             }
         }
 
-        self.underlay.as_widget_mut().on_event(
+        self.underlay.as_widget_mut().update(
             &mut state.children[0],
             event,
             layout,

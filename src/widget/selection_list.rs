@@ -249,7 +249,7 @@ where
         Node::with_children(size, vec![content])
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         state: &mut Tree,
         event: Event,
@@ -260,7 +260,7 @@ where
         shell: &mut Shell<Message>,
         viewport: &Rectangle,
     ) -> event::Status {
-        self.container.on_event(
+        self.container.update(
             &mut state.children[0],
             event,
             layout

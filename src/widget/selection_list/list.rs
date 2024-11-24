@@ -125,7 +125,7 @@ where
         Node::new(intrinsic)
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         state: &mut Tree,
         event: Event,

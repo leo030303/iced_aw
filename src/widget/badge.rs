@@ -177,7 +177,7 @@ where
         Node::with_children(size.expand(padding), vec![content])
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         state: &mut Tree,
         event: Event,
@@ -188,7 +188,7 @@ where
         shell: &mut Shell<'_, Message>,
         viewport: &Rectangle,
     ) -> event::Status {
-        self.content.as_widget_mut().on_event(
+        self.content.as_widget_mut().update(
             &mut state.children[0],
             event,
             layout

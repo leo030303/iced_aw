@@ -527,7 +527,7 @@ where
             .layout(tab_tree, renderer, &limits.loose())
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         _state: &mut Tree,
         event: Event,

@@ -177,7 +177,7 @@ where
     }
 
     #[allow(unused_results)]
-    fn on_event(
+    fn update(
         &mut self,
         event: Event,
         layout: Layout<'_>,
@@ -280,7 +280,7 @@ where
                 RecEvent::Event => RecEvent::Event,
                 RecEvent::Close => {
                     if menu_state.pressed || cursor.is_over(prescroll){
-                        menu.on_event(menu_tree, event, menu_layout, cursor, renderer, clipboard, shell, viewport, scroll_speed);
+                        menu.update(menu_tree, event, menu_layout, cursor, renderer, clipboard, shell, viewport, scroll_speed);
                         menu.open_event(menu_tree, menu_layout, cursor);
                         RecEvent::Event
                     } else if cursor.is_over(offset_bounds) {
@@ -296,7 +296,7 @@ where
                 }
                 RecEvent::None => {
                     if menu_state.pressed || cursor.is_over(prescroll){
-                        menu.on_event(menu_tree, event, menu_layout, cursor, renderer, clipboard, shell, viewport, scroll_speed);
+                        menu.update(menu_tree, event, menu_layout, cursor, renderer, clipboard, shell, viewport, scroll_speed);
                         menu.open_event(menu_tree, menu_layout, cursor);
                         RecEvent::Event
                     } else if cursor.is_over(offset_bounds) {

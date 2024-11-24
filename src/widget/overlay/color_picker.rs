@@ -612,7 +612,7 @@ where
         node
     }
 
-    fn on_event(
+    fn update(
         &mut self,
         event: Event,
         layout: Layout<'_>,
@@ -661,7 +661,7 @@ where
         let cancel_button_layout = block2_children
             .next()
             .expect("widget: Layout should have a cancel button layout for a ColorPicker");
-        let cancel_button_status = self.cancel_button.on_event(
+        let cancel_button_status = self.cancel_button.update(
             &mut self.tree.children[0],
             event.clone(),
             cancel_button_layout,
@@ -675,7 +675,7 @@ where
         let submit_button_layout = block2_children
             .next()
             .expect("widget: Layout should have a submit button layout for a ColorPicker");
-        let submit_button_status = self.submit_button.on_event(
+        let submit_button_status = self.submit_button.update(
             &mut self.tree.children[1],
             event,
             submit_button_layout,
