@@ -298,6 +298,13 @@ where
         self.class = class.into();
         self
     }
+
+    /// Sets the [`Id`] of the underlying [`TextInput`].
+    #[must_use]
+    pub fn id(mut self, id: impl Into<text_input::Id>) -> Self {
+        self.content = self.content.id(id.into());
+        self
+    }
 }
 
 impl<'a, T, Message, Theme, Renderer> Widget<Message, Theme, Renderer>
@@ -488,7 +495,7 @@ where
                         if text == "\u{1}" || text == "\u{3}" {
                             // CTRL + a and CTRL + c
                             forward_to_text(event, shell, child, clipboard)
-                        } else if text == "\u{8}" {
+                        } else if key == &keyboard::Key::Named(keyboard::key::Named::Backspace) {
                             // Backspace
                             if current_text == T::zero().to_string() {
                                 return event::Status::Ignored;
