@@ -74,7 +74,7 @@ iced_fonts = {version = "0.1.1", git = "https://github.com/leo030303/iced_fonts.
 git = "https://github.com/leo030303/iced.git"
 branch = "markdown_updates"
 default-features = false
-features = ["advanced", "unconditional-rendering"]
+features = ["advanced"]
 
 [profile.dev.package."*"]
 opt-level = 2
@@ -87,7 +87,7 @@ rand = "0.8.5"            # For wrap example
 git = "https://github.com/leo030303/iced.git"
 branch = "markdown_updates"
 #default-features = false
-features = ["advanced", "wgpu", "unconditional-rendering"]
+features = ["advanced", "wgpu"]
 
 [dev-dependencies.iced_aw]
 path = "./"

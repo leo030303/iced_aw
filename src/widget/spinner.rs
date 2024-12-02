@@ -9,7 +9,6 @@ use iced::{
         },
         Clipboard, Layout, Shell, Widget,
     },
-    event::Status,
     mouse::Cursor,
     time::Instant,
     window, Border, Color, Element, Event, Length, Rectangle, Shadow, Size, Vector,
@@ -175,7 +174,7 @@ where
         _clipboard: &mut dyn Clipboard,
         shell: &mut Shell<'_, Message>,
         _viewport: &Rectangle,
-    ) -> Status {
+    ) {
         const FRAMES_PER_SECOND: u64 = 60;
 
         let bounds = layout.bounds();
@@ -196,16 +195,12 @@ where
                     state.t -= 1.0;
                 }
 
-                shell.request_redraw(window::RedrawRequest::At(
+                shell.request_redraw_at(Instant::from(
                     now + Duration::from_millis(1000 / FRAMES_PER_SECOND),
                 ));
                 state.last_update = now;
-
-                return Status::Captured;
             }
         }
-
-        Status::Ignored
     }
 }
 

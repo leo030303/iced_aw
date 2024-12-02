@@ -4,7 +4,6 @@ use std::vec;
 
 use iced::advanced::widget::{Operation, Tree, Widget};
 use iced::advanced::{self, layout, mouse, overlay, renderer, Layout};
-use iced::event::Status;
 use iced::{Element, Point, Rectangle, Size, Vector};
 
 /// An element that can be dragged and dropped on a [`DropZone`]
@@ -169,7 +168,7 @@ where
         _clipboard: &mut dyn iced::advanced::Clipboard,
         shell: &mut iced::advanced::Shell<'_, Message>,
         _viewport: &iced::Rectangle,
-    ) -> iced::advanced::graphics::core::event::Status {
+    ) {
         // handle the on event of the content first, in case that the droppable is nested
         let status = self.content.as_widget_mut().update(
             &mut tree.children[0],
@@ -181,12 +180,6 @@ where
             shell,
             _viewport,
         );
-        // this should really only be captured if the droppable is nested or it contains some other
-        // widget that captures the event
-        if status == Status::Captured {
-            return status;
-        };
-
         if let Some(on_drop) = self.on_drop.as_deref() {
             let state = tree.state.downcast_mut::<State>();
             if let iced::Event::Mouse(mouse) = event {
@@ -203,7 +196,6 @@ where
                             if let Some(on_click) = self.on_click.clone() {
                                 shell.publish(on_click);
                             }
-                            return Status::Captured;
                         } else if btn == mouse::Button::Right {
                             if let Action::Drag(_, _) = state.action {
                                 shell.invalidate_layout();
@@ -269,7 +261,6 @@ where
                 }
             }
         }
-        Status::Ignored
     }
 
     fn layout(

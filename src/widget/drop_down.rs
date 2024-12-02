@@ -9,7 +9,6 @@ use iced::{
         widget::{Operation, Tree},
         Clipboard, Layout, Shell, Widget,
     },
-    event,
     keyboard::{self, key::Named},
     mouse::{self, Cursor},
     touch, Element, Event, Length, Point, Rectangle, Size, Vector,
@@ -159,7 +158,7 @@ where
         clipboard: &mut dyn Clipboard,
         shell: &mut Shell<'_, Message>,
         viewport: &Rectangle,
-    ) -> event::Status {
+    ) {
         self.underlay.as_widget_mut().update(
             &mut state.children[0],
             event,
@@ -169,7 +168,7 @@ where
             clipboard,
             shell,
             viewport,
-        )
+        );
     }
 
     fn mouse_interaction(
@@ -363,7 +362,7 @@ where
         renderer: &Renderer,
         clipboard: &mut dyn Clipboard,
         shell: &mut Shell<Message>,
-    ) -> event::Status {
+    ) {
         if let Some(on_dismiss) = self.on_dismiss {
             match &event {
                 Event::Keyboard(keyboard::Event::KeyPressed { key, .. }) => {
@@ -394,7 +393,7 @@ where
             clipboard,
             shell,
             &layout.bounds(),
-        )
+        );
     }
 
     fn mouse_interaction(

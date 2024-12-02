@@ -9,7 +9,6 @@ use iced::{
         widget::Tree,
         Clipboard, Layout, Shell, Widget,
     },
-    event,
     mouse::{self, Cursor},
     Alignment, Border, Color, Element, Event, Length, Padding, Point, Rectangle, Shadow, Size,
 };
@@ -187,7 +186,7 @@ where
         clipboard: &mut dyn Clipboard,
         shell: &mut Shell<'_, Message>,
         viewport: &Rectangle,
-    ) -> event::Status {
+    ) {
         self.content.as_widget_mut().update(
             &mut state.children[0],
             event,
@@ -200,7 +199,7 @@ where
             clipboard,
             shell,
             viewport,
-        )
+        );
     }
 
     fn mouse_interaction(
